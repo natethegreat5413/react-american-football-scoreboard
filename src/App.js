@@ -8,22 +8,14 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [lionScore, setLionScore] = useState(0)
   const [tigerScore, setTigerScore] = useState(0)
-
-  // const lionTouchdown = () => {
-  //   setLionScore(lionScore + 7)
-  // }
-
-  // const lionFieldGoal = () => {
-  //   setLionScore(lionScore + 3)
-  // }
-
-  // const tigerTouchdown = () => {
-  //   setTigerScore(tigerScore + 7)
-  // }
-  
-  // const tigerFieldGoal = () => {
-  //   setTigerScore(tigerScore + 3)
-  // }
+  function touchdown(team) {
+    // event => setHomeScore(homeScore + 7)
+    if(team === 'Lions'){
+      setLionScore(lionScore + 7)
+    }else if(team === 'Tigers'){
+      setTigerScore(tigerScore + 7)
+    }
+  }
 
   return (
     <div className="container">
@@ -47,11 +39,11 @@ function App() {
         <div className="homeButtons">
 
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={event => setLionScore(lionScore + 7)} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={event => touchdown('Lions')} className="homeButtons__touchdown">Home Touchdown</button>
           <button onClick={event => setLionScore(lionScore + 3)} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button onClick={event => setTigerScore(tigerScore + 7)} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={event => touchdown('Tigers')} className="awayButtons__touchdown">Away Touchdown</button>
           <button onClick={event => setTigerScore(tigerScore + 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
       </section>
