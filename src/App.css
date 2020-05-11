@@ -6,6 +6,8 @@
 .scoreboard {
   width: 58%;
   margin: 2rem auto;
+  background-image: url("rugby.jpg");
+  background-size: 100%;
   background-color: #0b5402;
   color: white;
   border-radius: 0.5rem;
